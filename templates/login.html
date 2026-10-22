@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login — Sniffing Detector</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Times New Roman", serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-box {
+            background: #ffffff;
+            padding: 40px;
+            width: 400px;
+            border: 1px solid #cccccc;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .login-box h1 {
+            font-size: 20px;
+            margin-bottom: 6px;
+            color: #1a1a1a;
+            text-align: center;
+        }
+
+        .login-box p.subtitle {
+            font-size: 13px;
+            color: #666666;
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: bold;
+            color: #333333;
+            margin-bottom: 6px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            font-size: 13px;
+            font-family: "Times New Roman", serif;
+            outline: none;
+        }
+
+        .form-group input:focus {
+            border-color: #1a1a2e;
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 11px;
+            background-color: #1a1a2e;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: "Times New Roman", serif;
+            cursor: pointer;
+            margin-top: 6px;
+        }
+
+        .btn-login:hover {
+            background-color: #2e2e4e;
+        }
+
+        .error-msg {
+            background-color: #fdecea;
+            border: 1px solid #f5c6cb;
+            color: #a94442;
+            padding: 10px 14px;
+            border-radius: 4px;
+            font-size: 13px;
+            margin-bottom: 18px;
+        }
+
+        .system-label {
+            text-align: center;
+            font-size: 11px;
+            color: #999999;
+            margin-top: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <h1>Sniffing Detection System</h1>
+        <p class="subtitle">Administrator Login</p>
+
+        {% if error %}
+        <div class="error-msg">{{ error }}</div>
+        {% endif %}
+
+        <form method="POST" action="/login">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    placeholder="Enter username"
+                    required
+                    autocomplete="off"
+                />
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Enter password"
+                    required
+                />
+            </div>
+            <button type="submit" class="btn-login">Login</button>
+        </form>
+
+        <p class="system-label">
+            Detection and Prevention of Sniffing in Wireless Networks<br>
+            University of Port Harcourt &mdash; BSc Computer Science
+        </p>
+    </div>
+</body>
+</html>
